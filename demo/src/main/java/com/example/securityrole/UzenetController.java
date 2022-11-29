@@ -1,27 +1,35 @@
 package com.example.securityrole;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.validation.Valid;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UzenetController {
-    @GetMapping("/urlap")
-    public String urlapForm(Model model) {
-        model.addAttribute("uzenet", new Uzenet());
-        return "urlap";
+    @Autowired
+    private ContentRepo contentRepo;
+
+    @GetMapping("/uzenetlista")
+    public String UzenetForm(Model model, String uzenet) {
+        model.addAttribute("uzenetek", contentRepo.findAll());
+        model.addAttribute("uzenet", model.getAttribute("uzenet"));
+        return "uzenetlista";
     }
 
-    @PostMapping("/eredmeny")
-    public String urlapSubmit(@Valid @ModelAttribute Uzenet uzenet, BindingResult bindingResult, Model model) {
-        if(bindingResult.hasErrors())
-            return "urlap";
-        model.addAttribute("attr2", uzenet);
-        return "eredmeny";
+    @GetMapping("/uzenet")
+    public String greetingForm(Model model) {
+        model.addAttribute("reg", new Content());
+        return "uzenet";
     }
+    @PostMapping(value="/reg_uzenet")
+    public String UzenetSubmit(@ModelAttribute Content content, Model model) {
+        contentRepo.save(content);
+        /*redirAttr.addFlashAttribute("uzenet","Az adatbevitel sikerült");*/
+        return "uzenet";
+    }
+
 }

@@ -1,20 +1,21 @@
 package com.example.securityrole;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
 
-public class Uzenet {
-    @NotNull
-    private long id;
-    @NotNull
-    @Size(min=2)
+@Entity
+@Table(name="content")
+public class Content {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     private String content;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

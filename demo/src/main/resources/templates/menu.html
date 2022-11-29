@@ -3,13 +3,13 @@
     <div>
         <span sec:authorize="isAnonymous()">
             <a th:href="@{/login}">Login</a>
-            <a th:href="@{/urlap}">Űrlap küldés</a>
-            <a th:href="@{/eredmeny}">Űrlap ellenőrzés</a>
         </span>
         <span sec:authorize="isAuthenticated()">
             <a th:href="@{/home}">Home</a>
             <a th:href="@{/logout}">Logout</a>
             <a th:href="@{/adatok}">Adatok</a>
+            <a th:href="@{/uzenet}">Üzenet küldés</a>
+            <a th:href="@{/uzenetlista}">Üzenet</a>
         </span>
         <span sec:authorize="hasRole('ROLE_ADMIN')">
             <a th:href="@{/admin/home}">Admin</a>
