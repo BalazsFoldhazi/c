@@ -31,8 +31,27 @@ public class HomeController {
         return "regisztral";
     }
 
+
+    @GetMapping("/urlap")
+    public String urlapForm(Model model) {
+        model.addAttribute("attr1", new Uzenet());
+        return "urlap";
+    }
+
+    @PostMapping("/feladat2")
+    public String urlapSubmit(@ModelAttribute Uzenet uzenet, Model model) {
+        model.addAttribute("attr2", uzenet);
+        return "eredmeny";
+    }
+
     @Autowired
     private UserRepository userRepo;
+
+
+
+
+
+
     @PostMapping("/regisztral_feldolgoz")
     public String Regisztráció(@ModelAttribute User user, Model model) {
         for(User felhasznalo2: userRepo.findAll())

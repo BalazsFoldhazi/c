@@ -7,6 +7,8 @@
         <span sec:authorize="isAuthenticated()">
             <a th:href="@{/home}">Home</a>
             <a th:href="@{/logout}">Logout</a>
+            <a th:href="@{/urlap}">Űrlap</a>
+            <a th:href="@{/adatok}">Adatok</a>
         </span>
         <span sec:authorize="hasRole('ROLE_ADMIN')">
             <a th:href="@{/admin/home}">Admin</a>
