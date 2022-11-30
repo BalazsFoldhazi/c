@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<div th:insert="header"></div>
 <div th:insert="menu"></div>
 <h3>Regisztrálja magát, ha még nem felhasználó!</h3>
 <form action="#" th:action="@{/regisztral_feldolgoz}" th:object="${reg}" method="post">
@@ -16,5 +17,6 @@
         <p><input type="submit" value="Regisztráció" /></p>
     </fieldset>
 </form>
+<div th:insert="footer"></div>
 </body>
 </html>

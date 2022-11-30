@@ -43,7 +43,6 @@ public class HomeController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Role role = new Role();
-        // Minden regisztrációkor USER szerepet adunk a felhasználónak:
         role.setId(3); role.setName("ROLE_USER");
         List<Role> rolelist = new ArrayList<Role>();
         rolelist.add(role);
