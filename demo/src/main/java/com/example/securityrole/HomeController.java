@@ -30,17 +30,8 @@ public class HomeController {
         model.addAttribute("reg", new User());
         return "regisztral";
     }
-
-
-
-
     @Autowired
     private UserRepository userRepo;
-
-
-
-
-
 
     @PostMapping("/regisztral_feldolgoz")
     public String Regisztráció(@ModelAttribute User user, Model model) {

@@ -21,15 +21,15 @@ public class UzenetController {
     }
 
     @GetMapping("/uzenet")
-    public String greetingForm(Model model) {
+    public String UzenetUj(Model model) {
         model.addAttribute("reg", new Content());
         return "uzenet";
     }
     @PostMapping(value="/reg_uzenet")
-    public String UzenetSubmit(@ModelAttribute Content content, Model model) {
+    public String UzenetSubmit(@ModelAttribute Content content, RedirectAttributes redirAttr) {
         contentRepo.save(content);
-        /*redirAttr.addFlashAttribute("uzenet","Az adatbevitel sikerült");*/
-        return "uzenet";
+        redirAttr.addFlashAttribute("uzenet","Az adatbevitel sikerült");
+        return "redirect:/";
     }
 
 }
