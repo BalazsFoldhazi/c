@@ -1,7 +1,7 @@
 package com.example.securityrole;
 
 import javax.persistence.*;
-
+/*Oprendszerek */
 @Entity
 @Table(name="oprendszerek")
 public class Oprendszerek {

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*Home controller */
 @Controller
 public class HomeController {
     @GetMapping("/")
