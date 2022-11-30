@@ -22,14 +22,14 @@ public class UzenetController {
 
     @GetMapping("/uzenet")
     public String UzenetUj(Model model) {
-        model.addAttribute("reg", new Content());
+        model.addAttribute("content", new Content());
         return "uzenet";
     }
     @PostMapping(value="/reg_uzenet")
-    public String UzenetSubmit(@ModelAttribute Content content, RedirectAttributes redirAttr) {
+    public String UzenetSubmit(@ModelAttribute Content content, Model model) {
         contentRepo.save(content);
-        redirAttr.addFlashAttribute("uzenet","Az adatbevitel sikerült");
-        return "redirect:/";
+        model.addAttribute("id", content.getContent());
+        return "/uzenet";
     }
 
 }

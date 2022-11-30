@@ -9,7 +9,7 @@
 <div th:insert="header"></div>
 <div th:insert="menu"></div>
 <h1>Üzenet küldése</h1>
-<form action="#" th:action="@{/reg_uzenet}" th:object="${reg}" method="post">
+<form action="#" th:action="@{/reg_uzenet}" th:object="${content}" method="post">
   <p>Üzenet: <input type="text" th:field="*{content}"/></p>
   <p><input type="submit" value="Küldés" /></p>
 </form>

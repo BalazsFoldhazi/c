@@ -9,6 +9,7 @@ public class Content {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name="content")
     private String content;
 
     public int getId() {
